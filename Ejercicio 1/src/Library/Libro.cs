@@ -18,6 +18,9 @@ namespace SRP
             this.Codigo = codigo;
         }
 
+        /*La parte de almacenar libro tendria que ser una clase distinta, asi 
+        cumplimos con el principio SRP 
+        */
         public void AlmacenarLibro(String sector, String estante)
         {
             this.SectorBiblioteca = sector;
