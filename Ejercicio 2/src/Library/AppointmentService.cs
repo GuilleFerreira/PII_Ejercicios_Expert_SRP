@@ -5,6 +5,12 @@ namespace Library
 {
     public class AppointmentService
     {
+        /* Para que cumpla con los patrones y principios se deberia dividir esta clase
+        en dos mas, una que reciba los datos del paciente y los verifique, y otra que reciba los datos
+        del doctor y los verifique, mientras que esta clase solo organiza la reserva y le asigna un id unico.
+        */
+
+
         public static string CreateAppointment(string name, string id, string phoneNumber, DateTime date, string appoinmentPlace, string doctorName)
         {
             StringBuilder stringBuilder = new StringBuilder("Scheduling appointment...\n");
