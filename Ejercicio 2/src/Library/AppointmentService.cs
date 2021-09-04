@@ -4,50 +4,47 @@ using System.Text;
 namespace Library
 {
     public class AppointmentService
-    {
-        public static string CreateAppointment(string name, string id, string phoneNumber, DateTime date, string appoinmentPlace, string doctorName)
+    { 
+        private string _name {get;set;}
+        private int _cedula {get;set;}
+        private int _edad {get;set;}
+        private int _telefono {get;set;}
+        private DateTime _date {get;set;}
+        private string _lugar {get;set;}
+        private string _doctor {get;set;}
+        private string _especialidad {get;set;}
+
+        public AppointmentService(string name, int cedula, int edad, int telefono, DateTime date, string lugar, string doctor, string especialidad)
         {
-            StringBuilder stringBuilder = new StringBuilder("Scheduling appointment...\n");
-            Boolean isValid = true;
+            this._name = name;
+            this._cedula = cedula;
+            this._edad = edad;
+            this._telefono = telefono;
+            this._date = date;
+            this._lugar = lugar;
+            this._doctor = doctor;
+            this._especialidad = especialidad;
 
-            if (string.IsNullOrEmpty(name))
-            {
-                stringBuilder.Append("Unable to schedule appointment, Name is required\n");
-                isValid = false;
-            }
-
-            if (string.IsNullOrEmpty(id))
-            {
-                stringBuilder.Append("Unable to schedule appointment, id is required\n");
-                isValid = false;
-            }
-
-            if (string.IsNullOrEmpty(phoneNumber))
-            {
-                stringBuilder.Append("Unable to schedule appointment, Phone number is required\n");
-                isValid = false;
-            }
-
-            if (string.IsNullOrEmpty(appoinmentPlace))
-            {
-                stringBuilder.Append("Unable to schedule appointment, Appoinment place is required\n");
-                isValid = false;
-            }
-
-            
-            if (string.IsNullOrEmpty(doctorName))
-            {
-                stringBuilder.Append("Unable to schedule appointment, Doctor name is required\n");
-                isValid = false;
-            }
-
-            if (isValid)
-            {
-                stringBuilder.Append("Appoinment Scheduled");
-            }
-
-            return stringBuilder.ToString();
+            Paciente paciente = new Paciente(this._name,this._cedula,this._edad,this._telefono);
+            Doctor doctor = new Doctor(this._doctor,this._especialidad);
         }
 
+        public bool IsValidD(DateTime date, string lugar)
+        {
+            if (string.IsNullOrEmpty(lugar) & string.IsNullOrEmpty(date))
+            {isValid = false;}
+            else{IsValid=true;}
+            return IsValid;
+        }
+        /*
+        public string Verifica()
+        {
+        if (cita.IsValid = true & paciente.IsValid = true)
+        {
+
+        }
+        }
+        */
     }
+
 }
